@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A30054127C5023300873A3A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2A30054027C5023300873A3A /* SQLite */; };
 		2A31AD3E27B28DC5008CDB4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31AD3D27B28DC5008CDB4E /* AppDelegate.swift */; };
 		2A31AD4027B28DC5008CDB4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31AD3F27B28DC5008CDB4E /* SceneDelegate.swift */; };
 		2A31AD4227B28DC5008CDB4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31AD4127B28DC5008CDB4E /* ViewController.swift */; };
@@ -16,6 +17,10 @@
 		2A31AD5527B28DC6008CDB4E /* chatbotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31AD5427B28DC6008CDB4E /* chatbotTests.swift */; };
 		2A31AD5F27B28DC6008CDB4E /* chatbotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31AD5E27B28DC6008CDB4E /* chatbotUITests.swift */; };
 		2A31AD6127B28DC6008CDB4E /* chatbotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A31AD6027B28DC6008CDB4E /* chatbotUITestsLaunchTests.swift */; };
+		2AA16E3D27BA71D8004256E9 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA16E3C27BA71D8004256E9 /* MessageModel.swift */; };
+		2AEE781427B68A3700F5510A /* ChatMessageDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE781027B68A3700F5510A /* ChatMessageDataHelper.swift */; };
+		2AEE781527B68A3700F5510A /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE781127B68A3700F5510A /* SQLiteDataStore.swift */; };
+		2AEE781727B68A3700F5510A /* DataAccessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE781327B68A3700F5510A /* DataAccessError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,10 @@
 		2A31AD5A27B28DC6008CDB4E /* chatbotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatbotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A31AD5E27B28DC6008CDB4E /* chatbotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbotUITests.swift; sourceTree = "<group>"; };
 		2A31AD6027B28DC6008CDB4E /* chatbotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2AA16E3C27BA71D8004256E9 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		2AEE781027B68A3700F5510A /* ChatMessageDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageDataHelper.swift; sourceTree = "<group>"; };
+		2AEE781127B68A3700F5510A /* SQLiteDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDataStore.swift; sourceTree = "<group>"; };
+		2AEE781327B68A3700F5510A /* DataAccessError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A30054127C5023300873A3A /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +116,8 @@
 				2A31AD4627B28DC6008CDB4E /* Assets.xcassets */,
 				2A31AD4827B28DC6008CDB4E /* LaunchScreen.storyboard */,
 				2A31AD4B27B28DC6008CDB4E /* Info.plist */,
+				2AA16E3B27BA71BE004256E9 /* Models */,
+				2AEE780F27B689D500F5510A /* Database */,
 			);
 			path = chatbot;
 			sourceTree = "<group>";
@@ -127,6 +139,24 @@
 			path = chatbotUITests;
 			sourceTree = "<group>";
 		};
+		2AA16E3B27BA71BE004256E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2AA16E3C27BA71D8004256E9 /* MessageModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2AEE780F27B689D500F5510A /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				2AEE781327B68A3700F5510A /* DataAccessError.swift */,
+				2AEE781127B68A3700F5510A /* SQLiteDataStore.swift */,
+				2AEE781027B68A3700F5510A /* ChatMessageDataHelper.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +173,9 @@
 			dependencies = (
 			);
 			name = chatbot;
+			packageProductDependencies = (
+				2A30054027C5023300873A3A /* SQLite */,
+			);
 			productName = chatbot;
 			productReference = 2A31AD3A27B28DC5008CDB4E /* chatbot.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +248,9 @@
 				Base,
 			);
 			mainGroup = 2A31AD3127B28DC5008CDB4E;
+			packageReferences = (
+				2A30053F27C5023300873A3A /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = 2A31AD3B27B28DC5008CDB4E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +296,10 @@
 			files = (
 				2A31AD4227B28DC5008CDB4E /* ViewController.swift in Sources */,
 				2A31AD3E27B28DC5008CDB4E /* AppDelegate.swift in Sources */,
+				2AA16E3D27BA71D8004256E9 /* MessageModel.swift in Sources */,
+				2AEE781427B68A3700F5510A /* ChatMessageDataHelper.swift in Sources */,
+				2AEE781527B68A3700F5510A /* SQLiteDataStore.swift in Sources */,
+				2AEE781727B68A3700F5510A /* DataAccessError.swift in Sources */,
 				2A31AD4027B28DC5008CDB4E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +638,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A30053F27C5023300873A3A /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A30054027C5023300873A3A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A30053F27C5023300873A3A /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A31AD3227B28DC5008CDB4E /* Project object */;
 }
