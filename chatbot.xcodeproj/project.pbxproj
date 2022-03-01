@@ -111,13 +111,12 @@
 		2A31AD3C27B28DC5008CDB4E /* chatbot */ = {
 			isa = PBXGroup;
 			children = (
-				2A31AD3D27B28DC5008CDB4E /* AppDelegate.swift */,
-				2A31AD3F27B28DC5008CDB4E /* SceneDelegate.swift */,
-				2A31AD4127B28DC5008CDB4E /* ViewController.swift */,
-				2A31AD4327B28DC5008CDB4E /* Main.storyboard */,
+				2A31AD4B27B28DC6008CDB4E /* Info.plist */,
 				2A31AD4627B28DC6008CDB4E /* Assets.xcassets */,
 				2A31AD4827B28DC6008CDB4E /* LaunchScreen.storyboard */,
-				2A31AD4B27B28DC6008CDB4E /* Info.plist */,
+				2A31AD3D27B28DC5008CDB4E /* AppDelegate.swift */,
+				2A31AD3F27B28DC5008CDB4E /* SceneDelegate.swift */,
+				2A5FB56F27CE140C00862D84 /* UI */,
 				2AA16E3B27BA71BE004256E9 /* Models */,
 				2AEE780F27B689D500F5510A /* Database */,
 			);
@@ -139,6 +138,31 @@
 				2A31AD6027B28DC6008CDB4E /* chatbotUITestsLaunchTests.swift */,
 			);
 			path = chatbotUITests;
+			sourceTree = "<group>";
+		};
+		2A5FB56F27CE140C00862D84 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2A5FB57127CE147000862D84 /* Views */,
+				2A5FB57027CE145100862D84 /* ViewModel */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2A5FB57027CE145100862D84 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2A5FB57127CE147000862D84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A31AD4327B28DC5008CDB4E /* Main.storyboard */,
+				2A31AD4127B28DC5008CDB4E /* ViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2AA16E3B27BA71BE004256E9 /* Models */ = {
