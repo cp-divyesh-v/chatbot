@@ -12,6 +12,7 @@ class ChatMessageDataHelper: DataHelperProtocol {
 
     static let table = Table("MessageModel")
     static let id = Expression<String>("id")
+    static let chatId = Expression<String>("chatId")
     static let isUserMessage = Expression<Bool>("isUserMessage")
     static let sentTime = Expression<Int>("sentTime")
     static let message = Expression<String>("message")
@@ -25,6 +26,7 @@ class ChatMessageDataHelper: DataHelperProtocol {
         do {
             try database.run(table.create(ifNotExists: true, block: { table in
                 table.column(id)
+                table.column(chatId)
                 table.column(isUserMessage)
                 table.column(sentTime)
                 table.column(message)
@@ -37,6 +39,7 @@ class ChatMessageDataHelper: DataHelperProtocol {
     static func insert(item: T) -> Swift.Result<(Int64, T), DataAccessError> {
 
         let insert = table.insert(self.id <- item.id,
+                                  self.chatId <- item.chatId,
                                   self.isUserMessage <- item.isUserMessage,
                                   self.sentTime <- item.sentTime,
                                   self.message <- item.message)
@@ -87,26 +90,27 @@ class ChatMessageDataHelper: DataHelperProtocol {
         }
     }
 
-//    static func findMessageWith(messageId: String) -> Swift.Result<[T], DataAccessError> {
-//
-//        var data: [T] = []
-//
-//        guard let database = SQLiteDataStore.current.db else {
-//            return .failure(.connection)
-//        }
-//        do {
-//            let table = Self.table.filter(self.id == messageId)
-//            for t in try database.prepare(table) {
-//                data.append(.init(id: t[self.id],
-//                                  isUserMessage: t[self.isUserMessage],
-//                                  sentTime: t[self.sentTime],
-//                                  message: t[self.message]))
-//            }
-//            return .success(data)
-//        } catch {
-//            return .failure(.underlying(error))
-//        }
-//    }
+    static func findMessageWith(chatId: String) -> Swift.Result<[T], DataAccessError> {
+
+        var data: [T] = []
+
+        guard let database = SQLiteDataStore.current.db else {
+            return .failure(.connection)
+        }
+        do {
+            let table = Self.table.filter(self.chatId == chatId)
+            for t in try database.prepare(table) {
+                data.append(.init(id: t[self.id],
+                                  chatId: t[self.chatId],
+                                  isUserMessage: t[self.isUserMessage],
+                                  sentTime: t[self.sentTime],
+                                  message: t[self.message]))
+            }
+            return .success(data)
+        } catch {
+            return .failure(.underlying(error))
+        }
+    }
 
     static func findMessageWith(id: String) -> Swift.Result<T, DataAccessError> {
 
@@ -119,6 +123,7 @@ class ChatMessageDataHelper: DataHelperProtocol {
             let table = Self.table.filter(self.id == id)
             for t in try database.prepare(table) {
                 data.append(.init(id: t[self.id],
+                                  chatId: t[self.chatId],
                                   isUserMessage: t[self.isUserMessage],
                                   sentTime: t[self.sentTime],
                                   message: t[self.message]))
@@ -145,6 +150,7 @@ class ChatMessageDataHelper: DataHelperProtocol {
 
             for item in items {
                 data.append(.init(id: item[id],
+                                  chatId: item[chatId],
                                   isUserMessage: item[isUserMessage],
                                   sentTime: item[sentTime],
                                   message: item[message])

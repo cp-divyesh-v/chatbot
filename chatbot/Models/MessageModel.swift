@@ -9,6 +9,7 @@ import Foundation
 
 struct MessageModel {
     let id: String
+    let chatId: String
     let isUserMessage: Bool
     let sentTime: Int
     let message: String
@@ -17,7 +18,6 @@ struct MessageModel {
 struct ChatModel {
     let id: String
     let name: String
-    let messages: [MessageModel]
     let createdAt: Date
     let updatedOn: Date
 }
